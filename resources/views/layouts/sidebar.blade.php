@@ -36,8 +36,8 @@
         <div id="collapseInventori" class="collapse" aria-labelledby="headingInventori"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="">Data Barang</a>
-                <a class="collapse-item" href="">Barang Masuk</a>
+                <a class="collapse-item" href="{{ route('barang.index') }}">Data Barang</a>
+                <a class="collapse-item" href="{{ route('barang-masuk.index') }}">Barang Masuk</a>
                 <a class="collapse-item" href="">Barang Keluar</a>
             </div>
         </div>
