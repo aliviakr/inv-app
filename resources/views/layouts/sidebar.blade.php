@@ -25,6 +25,21 @@
     <div class="sidebar-heading">
         Menu
     </div>
+
+    <!-- Kategori -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKategori"
+            aria-expanded="true" aria-controls="collapseKategori">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Kategori</span>
+        </a>
+        <div id="collapseKategori" class="collapse" aria-labelledby="headingKategori"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ Route('kategori.index') }}">Data Kategori</a>
+            </div>
+        </div>
+    </li>
     
     <!-- Inventori -->    
     <li class="nav-item">
@@ -38,24 +53,24 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('barang.index') }}">Data Barang</a>
                 <a class="collapse-item" href="{{ route('barang-masuk.index') }}">Barang Masuk</a>
-                <a class="collapse-item" href="">Barang Keluar</a>
+                <a class="collapse-item" href="{{ route('barang-keluar.index') }}">Barang Keluar</a>
             </div>
         </div>
     </li>
 
-    <!-- Riwayat -->
-    @if(auth()->user()->role == 'admin')
+    <!-- Laporan -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRiwayat"
-            aria-expanded="true" aria-controls="collapseRiwayat">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan"
+            aria-expanded="true" aria-controls="collapseLaporan">
             <i class="fas fa-fw fa-history"></i>
-            <span>Riwayat</span>
+            <span>Laporan</span>
         </a>
-        <div id="collapseRiwayat" class="collapse" aria-labelledby="headingRiwayat"
+        <div id="collapseLaporan" class="collapse" aria-labelledby="headingLaporan"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="" href="">Riwayat Barang Masuk</a>
-                <a class="collapse-item" href="" href="">Riwayat Barang Keluar</a>
+                <a class="collapse-item" href="{{ route('laporan-masuk.index') }}">Laporan Barang Masuk</a>
+                <a class="collapse-item" href="{{ route('laporan-keluar.index') }}" >Laporan Barang Keluar</a>
+                <a class="collapse-item" href="" >Laporan Keuangan</a>
             </div>
         </div>
     </li>
@@ -74,7 +89,7 @@
             </div>
         </div>
     </li>
-    @endif
+
 
 
     <!-- Divider -->

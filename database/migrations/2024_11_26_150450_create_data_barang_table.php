@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('data_barang', function (Blueprint $table) {
             $table->id();
             $table->string('nama_barang');
-            $table->string('kategori');
-            $table->integer('stok');
+            $table->unsignedBigInteger('kategori_id');
+            $table->integer('stok')->default(0);
             $table->string('harga_masuk');
             $table->string('harga_keluar');
             $table->timestamps();
+
+            $table->foreign('kategori_id')->references('id')->on('kategori')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

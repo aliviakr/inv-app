@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Barang;
+use App\Models\Kategori;
 
 class BarangController
 {
@@ -14,7 +15,8 @@ class BarangController
     {
         // Menampilkan data barang
         $barang = Barang::all();
-        return view('barang.index', compact('barang'));
+        $kategori = Kategori::all();
+        return view('barang.index', compact('barang', 'kategori'));
     }
 
 
@@ -26,8 +28,8 @@ class BarangController
         // Validasi data barang
         $request->validate([
             'nama_barang' => 'required',
-            'kategori' => 'required',
-            'stok' => 'required',
+            'kategori_id' => 'required',
+            // 'stok' => 'required',
             'harga_masuk' => 'required',
             'harga_keluar' => 'required'
         ]);
@@ -36,8 +38,8 @@ class BarangController
         // Menambah data barang
         Barang::create([
             'nama_barang' => $request->nama_barang,
-            'kategori' => $request->kategori,
-            'stok' => $request->stok,
+            'kategori_id' => $request->kategori_id,
+            // 'stok' => $request->stok,
             'harga_masuk' =>$request->harga_masuk,
             'harga_keluar' =>$request->harga_keluar
         ]);
@@ -73,8 +75,8 @@ class BarangController
         // Validasi data barang
         $request->validate([
             'nama_barang' => 'required',
-            'kategori' => 'required',
-            'stok' => 'required',
+            'kategori_id' => 'required',
+            // 'stok' => 'required',
             'harga_masuk' => 'required',
             'harga_keluar' => 'required'
         ]);
@@ -83,8 +85,8 @@ class BarangController
         $barang = Barang::findOrFail($id);
         $barang->update([
             'nama_barang' => $request->nama_barang,
-            'kategori' => $request->kategori,
-            'stok' => $request->stok,
+            'kategori_id' => $request->kategori_id,
+            // 'stok' => $request->stok,
             'harga_masuk' =>$request->harga_masuk,
             'harga_keluar' =>$request->harga_keluar
         ]);

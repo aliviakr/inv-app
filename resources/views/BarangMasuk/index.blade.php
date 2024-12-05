@@ -42,7 +42,7 @@
                                 <th>Nama Barang</th>
                                 <th>Jumlah (pcs)</th>
                                 <th>Tanggal Masuk</th>
-                                <th>Total</th>
+                                <th>Total (Rp)</th>
                                 <th width="110px">Aksi</th>
                             </tr>
                         </thead>
@@ -51,15 +51,15 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->barang->nama_barang }}</td>
-                                    <td>{{ $item->jumlah_masuk }} {{ $item->barang->stok }}</td>
+                                    <td>{{ $item->jumlah_masuk }}</td>
                                     <td>{{ formatToDate($item->tanggal_masuk) }}</td>
-                                    <td>{{ $item->total_masuk }}</td>
+                                    <td>{{ formatToRupiah($item->total_masuk) }}</td>
                                     <td>
                                         <a href="#" class="btn btn-warning btn-sm edit-btn" data-toggle="modal" data-target="#editBarangMasuk{{ $item->id }}" data-id="{{ $item->id }}"><i class="fas fa-pen fa-sm fa-fw"></i></a>
-                                        <!-- @include('BarangMasuk.modal-edit', ['item' => $item])
+                                        @include('BarangMasuk.modal-edit', ['item' => $item])
                                         <form action="{{ route('barang-masuk.destroy', $item->id) }}" method="POST" class="d-inline">
                                             @csrf
-                                            @method('DELETE') -->
+                                            @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash fa-sm fa-fw"></i></button>
                                         </form>
                                 </tr>
@@ -85,7 +85,7 @@
                         $('#nama_barang').val(data.data_barang_id);
                         $('#jumlah_masuk').val(data.jumlah_masuk);
                         $('#tanggal_masuk').val(data.tanggal_masuk);
-                        $('#total_masuk').val(data.tanggal_masuk);
+                        $('#total_masuk').val(data.total_masuk);
                     }
                 });
             });

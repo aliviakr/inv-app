@@ -42,9 +42,9 @@ class BarangMasukController
 
         // Update jumlah barang di inventory
         $barang = Barang::findOrFail($request->data_barang_id);
-        $barang->increment('jumlah_masuk', $request->jumlah_masuk);
-        // Update total masuk
-        $barang->increment('total_masuk', $request->total_masuk);
+        $barang->increment('stok', $request->jumlah_masuk);
+        // // Update total masuk
+        // $barang->increment('harga_masuk', $request->total_masuk);
 
         return redirect()->route('barang-masuk.index')->with('success', 'Data barang masuk berhasil ditambahkan!');
     }
@@ -75,14 +75,14 @@ class BarangMasukController
         // Update data barang masuk
         $barang_masuk->update([
             'data_barang_id' => $request->data_barang_id,
-            'data_suplier_id' => $request->data_suplier_id,
             'jumlah_masuk' => $request->jumlah_masuk,
             'tanggal_masuk' => $request->tanggal_masuk,
+            'total_masuk' => $request->total_masuk,
         ]);
 
         // Update jumlah barang di inventory
         $barang = Barang::findOrFail($request->data_barang_id);
-        $barang->increment('jumlah', $selisih);
+        $barang->increment('stok', $selisih);
 
         return redirect()->route('barang-masuk.index')->with('success', 'Data barang masuk berhasil diupdate!');
 
@@ -95,7 +95,7 @@ class BarangMasukController
         
         // Update jumlah barang di inventory
         $barang = Barang::findOrFail($barang_masuk->data_barang_id);
-        $barang->decrement('jumlah', $barang_masuk->jumlah_masuk);
+        $barang->decrement('stok', $barang_masuk->jumlah_masuk);
         
         // Hapus data barang masuk
         $barang_masuk->delete();

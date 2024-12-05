@@ -18,6 +18,9 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{ asset('/assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+     <!-- Tambahkan CSS Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet">
     @stack('styles')
 
 </head>
@@ -74,6 +77,10 @@
             }, 3000);
         });
     </script>
+   
+
+    <!-- Tambahkan JS Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('/assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>

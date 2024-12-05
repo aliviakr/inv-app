@@ -53,7 +53,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama_barang }}</td>
-                                    <td>{{ $item->kategori }}</td>
+                                    <td>{{ $item->kategori->kategori }}</td>
                                     @if ( $item->stok <= 5 )
                                     <td>{{ $item->stok }}
                                     <span class="text-danger font-weight-bold">(Stok Menipis)</span>
