@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cetak Laporan Keluar</title>
+    <title>Cetak Data Barang</title>
 
     <style>
         * {
@@ -32,7 +32,7 @@
     </style>
 </head>
 <body>
-    <h2 class="text-center">Laporan Barang Keluar</h2>
+    <h2 class="text-center">Cetak Data Barang</h2>
     <table>
         <thead>
             <tr>
@@ -40,34 +40,22 @@
                 <th>Nama Barang</th>
                 <th>Kategori</th>
                 <th>Jumlah (pcs)</th>
-                <th>Tanggal Keluar</th>
-                <th>Total (Rp)</th>
+                <th>Harga Masuk</th>
+                <th>Harga Keluar</th>
             </tr>
         </thead>
         <tbody>
-            @php
-                $totalKeseluruhan = 0;
-            @endphp
-            @foreach ($barang_keluar as $item)
+            @foreach ($barang as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->barang->nama_barang }}</td>
-                    <td>{{ $item->barang->kategori->kategori }}</td>
-                    <td>{{ $item->jumlah_keluar }}</td>
-                    <td>{{ formatToDate($item->tanggal_keluar) }}</td>
-                    <td>{{ formatToRupiah($item->total_keluar) }}</td>
+                    <td>{{ $item->nama_barang }}</td>
+                    <td>{{ $item->kategori->kategori }}</td>
+                    <td>{{ $item->stok }}</td>
+                    <td>{{ $item->harga_masuk }}</td>
+                    <td>{{ $item->harga_keluar}}</td>
                 </tr>
-                @php
-                    $totalKeseluruhan += $item->total_keluar;
-                @endphp
             @endforeach
         </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="5">Total</th>
-                <th>{{ formatToRupiah($totalKeseluruhan) }}</th>
-            </tr>
-        </tfoot>
     </table>
 </body>
 </html>

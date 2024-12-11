@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Barang;
 use App\Models\Kategori;
 
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+
 class BarangController
 {
     /**
@@ -19,6 +21,13 @@ class BarangController
         return view('barang.index', compact('barang', 'kategori'));
     }
 
+    public function cetakPdf()
+    {
+        $barang = Barang::all();
+
+        $pdf = PDF::loadView('Barang.cetak-pdf', compact('barang'));
+        return $pdf->download('barang.pdf');
+    }
 
     /**
      * Store a newly created resource in storage.

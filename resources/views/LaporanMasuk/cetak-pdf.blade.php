@@ -45,17 +45,29 @@
             </tr>
         </thead>
         <tbody>
+            @php
+                $totalKeseluruhan = 0;
+            @endphp
             @foreach ($barang_masuk as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->barang->nama_barang }}</td>
                     <td>{{ $item->barang->kategori->kategori }}</td>
-                    <td>{{ $item->jumlah_masuk }}</td>
+                    <td>{{ $item->jumlah_keluar }}</td>
                     <td>{{ formatToDate($item->tanggal_masuk) }}</td>
-                    <td>{{ formatToRupiah($item->total_masuk)}}</td>
+                    <td>{{ formatToRupiah($item->total_masuk) }}</td>
                 </tr>
+                @php
+                    $totalKeseluruhan += $item->total_masuk;
+                @endphp
             @endforeach
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="5">Total</th>
+                <th>{{ formatToRupiah($totalKeseluruhan) }}</th>
+            </tr>
+        </tfoot>
     </table>
 </body>
 </html>

@@ -34,52 +34,50 @@ class LaporanKeluarController
         return $pdf->download('laporan-barang-keluar.pdf');
     }
 
-    // public function cetakExcel()
-    // {
-    //     $spreadsheet = new Spreadsheet();
-    //     $sheet = $spreadsheet->getActiveSheet();
+    public function cetakExcel()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
 
-    //     $sheet->getStyle('A1:F1')->getFont()->setBold(true);
+        $sheet->getStyle('A1:F1')->getFont()->setBold(true);
 
-    //     // Judul
-    //     $sheet->mergeCells('A1:F1');
-    //     $sheet->setCellValue('A1', 'Riwayat Barang Keluar');
-    //     $sheet->getStyle('A1')->getAlignment()->setHorizontal('center');
+        // Judul
+        $sheet->mergeCells('A1:F1');
+        $sheet->setCellValue('A1', 'Riwayat Barang Keluar');
+        $sheet->getStyle('A1')->getAlignment()->setHorizontal('center');
 
-    //     // Kolom Lebar
-    //     $sheet->getColumnDimension('A')->setWidth(5);
-    //     $sheet->getColumnDimension('B')->setWidth(20);
-    //     $sheet->getColumnDimension('C')->setWidth(20);
-    //     $sheet->getColumnDimension('D')->setWidth(20);
-    //     $sheet->getColumnDimension('E')->setWidth(20);
-    //     $sheet->getColumnDimension('F')->setWidth(20);
+        // Kolom Lebar
+        $sheet->getColumnDimension('A')->setWidth(5);
+        $sheet->getColumnDimension('B')->setWidth(20);
+        $sheet->getColumnDimension('C')->setWidth(20);
+        $sheet->getColumnDimension('D')->setWidth(20);
+        $sheet->getColumnDimension('E')->setWidth(20);
+        $sheet->getColumnDimension('F')->setWidth(20);
 
-    //     // Header Table
-    //     $sheet->setCellValue('A2', 'No');
-    //     $sheet->setCellValue('B2', 'Nama Barang');
-    //     $sheet->setCellValue('C2', 'Jenis Barang');
-    //     $sheet->setCellValue('D2', 'Jumlah Keluar');
-    //     $sheet->setCellValue('E2', 'Tanggal Keluar');
-    //     $sheet->setCellValue('F2', 'Keterangan');
+        // Header Table
+        $sheet->setCellValue('A2', 'No');
+        $sheet->setCellValue('B2', 'Nama Barang');
+        $sheet->setCellValue('C2', 'Jenis Barang');
+        $sheet->setCellValue('D2', 'Jumlah Keluar');
+        $sheet->setCellValue('E2', 'Tanggal Keluar');
 
-    //     $barang_keluar = BarangKeluar::all();
-    //     $no = 1;
-    //     $cell = 3;
-    //     foreach ($barang_keluar as $data) {
-    //         $sheet->setCellValue('A' . $cell, $no++);
-    //         $sheet->setCellValue('B' . $cell, $data->barang->nama_barang);
-    //         $sheet->setCellValue('C' . $cell, $data->barang->jenis_barang->jenis_barang);
-    //         $sheet->setCellValue('D' . $cell, $data->jumlah_keluar);
-    //         $sheet->setCellValue('E' . $cell, $data->tanggal_keluar);
-    //         $sheet->setCellValue('F' . $cell, $data->deskripsi);
-    //         $cell++;
-    //     }
+        $barang_keluar = BarangKeluar::all();
+        $no = 1;
+        $cell = 3;
+        foreach ($barang_keluar as $data) {
+            $sheet->setCellValue('A' . $cell, $no++);
+            $sheet->setCellValue('B' . $cell, $data->barang->nama_barang);
+            $sheet->setCellValue('C' . $cell, $data->barang->jenis_barang->jenis_barang);
+            $sheet->setCellValue('D' . $cell, $data->jumlah_keluar);
+            $sheet->setCellValue('E' . $cell, $data->tanggal_keluar);
+            $cell++;
+        }
 
-    //     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-    //     $writer->save('riwayat-barang-keluar.xlsx');
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $writer->save('riwayat-barang-keluar.xlsx');
 
-    //     return response()->download(public_path('riwayat-barang-keluar.xlsx'));
+        return response()->download(public_path('riwayat-barang-keluar.xlsx'));
 
-    // }
+    }
 
 }

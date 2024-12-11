@@ -33,6 +33,9 @@
             <div class="card-header py-3">
             <a  href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahBarang">Tambah</a>
             @include('Barang.modal-create')
+            <a href="{{ route('barang.cetak-pdf') }}" class="btn btn-danger btn-sm"><i class="fas fa-print fa-sm fa-fw mr-2"></i>
+                Cetak PDF
+            </a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

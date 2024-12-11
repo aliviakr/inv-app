@@ -9,6 +9,7 @@ use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\LaporanMasukController;
 use App\Http\Controllers\LaporanKeluarController;
+use App\Http\Controllers\LaporanKeuanganController;
 
 
 
@@ -34,6 +35,7 @@ Route::post('barang', [BarangController::class, 'store'])->name('barang.store')-
 Route::delete('barang/{id}', [BarangController::class, 'destroy'])->name('barang.destroy')->middleware('auth');
 Route::get('barang/{id}/edit', [BarangController::class, 'edit'])->name('barang.edit')->middleware('auth');
 Route::put('barang/{id}', [BarangController::class, 'update'])->name('barang.update')->middleware('auth');
+Route::get('barang/cetak-pdf', [BarangController::class, 'cetakPdf'])->name('barang.cetak-pdf')->middleware('auth');
 
 // Route untuk barang masuk
 Route::get('/barang-masuk', [BarangMasukController::class, 'index'])->name('barang-masuk.index')->middleware('auth');
@@ -66,3 +68,7 @@ Route::get('laporan-masuk/cetak-pdf', [LaporanMasukController::class, 'cetakPdf'
 // Route untuk riwayat barang keluar
 Route::get('laporan-keluar', [LaporanKeluarController::class, 'index'])->name('laporan-keluar.index')->middleware('auth');
 Route::get('laporan-keluar/cetak-pdf', [LaporanKeluarController::class, 'cetakPdf'])->name('laporan-keluar.cetak-pdf')->middleware('auth');
+
+// Route untuk laporan keuangan
+Route::get('laporan-keuangan', [LaporanKeuanganController::class, 'index'])->name('laporan-keuangan.index')->middleware('auth');
+Route::get('laporan-keuangan/cetak-pdf', [LaporanKeuanganController::class, 'cetakPdf'])->name('laporan-keuangan.cetak-pdf')->middleware('auth');
