@@ -40,6 +40,7 @@
                             <tr>
                                 <th width="10px">No.</th>
                                 <th>Nama Barang</th>
+                                <th>Harga Satuan</th>
                                 <th>Jumlah (pcs)</th>
                                 <th>Tanggal Masuk</th>
                                 <th>Total (Rp)</th>
@@ -51,6 +52,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->barang->nama_barang }}</td>
+                                    <td>{{ $item->harga_masuk }}</td>
                                     <td>{{ $item->jumlah_masuk }}</td>
                                     <td>{{ formatToDate($item->tanggal_masuk) }}</td>
                                     <td>{{ formatToRupiah($item->total_masuk) }}</td>
@@ -75,6 +77,10 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
+            $('#nama_barang').select2({
+                placeholder: "-- Pilih Nama Barang --",
+                allowClear: true
+            });
             $('.edit-btn').on('click', function() {
                 var barang_masuk_id = $(this).data('id');
                 $.ajax({

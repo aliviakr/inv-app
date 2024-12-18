@@ -27,6 +27,7 @@ class BarangMasukController
         // Validasi data barang masuk
         $request->validate([
             'data_barang_id' => 'required',
+            'harga_masuk' => 'required',
             'jumlah_masuk' => 'required',
             'tanggal_masuk' => 'required',
             'total_masuk' => 'required',
@@ -35,6 +36,7 @@ class BarangMasukController
         // Menambah data barang masuk
         BarangMasuk::create([
             'data_barang_id' => $request->data_barang_id,
+            'harga_masuk' => $request->harga_masuk,
             'jumlah_masuk' => $request->jumlah_masuk,
             'tanggal_masuk' => $request->tanggal_masuk,
             'total_masuk' => $request->total_masuk,
@@ -61,6 +63,7 @@ class BarangMasukController
         // Validasi data barang masuk
         $request->validate([
             'data_barang_id' => 'required',
+            'harga_masuk' => 'required',
             'jumlah_masuk' => 'required',
             'tanggal_masuk' => 'required',
             'total_masuk' => 'required',
@@ -75,6 +78,7 @@ class BarangMasukController
         // Update data barang masuk
         $barang_masuk->update([
             'data_barang_id' => $request->data_barang_id,
+            'harga_masuk' => $request->harga_masuk,
             'jumlah_masuk' => $request->jumlah_masuk,
             'tanggal_masuk' => $request->tanggal_masuk,
             'total_masuk' => $request->total_masuk,

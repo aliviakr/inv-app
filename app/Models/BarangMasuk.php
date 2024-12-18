@@ -12,6 +12,7 @@ class BarangMasuk extends Model
     protected $table = 'barang_masuk';
     protected $fillable = [
         'data_barang_id',
+        'harga_masuk',
         'jumlah_masuk',
         'tanggal_masuk',
         'total_masuk'
