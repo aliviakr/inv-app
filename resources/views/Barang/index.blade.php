@@ -64,8 +64,8 @@
                                     @else
                                     <td>{{ $item->stok }}</td>
                                     @endif
-                                    <td>{{ $item->harga_masuk }}</td>
-                                    <td>{{ $item->harga_keluar }}</td>
+                                    <td>{{ formatToRupiah($item->harga_masuk) }}</td>
+                                    <td>{{ formatToRupiah($item->harga_keluar) }}</td>
                                     <td>
                                     <a href="#" class="btn btn-warning btn-sm edit-btn" data-toggle="modal" data-target="#editBarang{{ $item->id }}" data-id="{{ $item->id }}"><i class="fas fa-pen fa-sm fa-fw"></i></a>
                                         @include('Barang.modal-edit', ['item' => $item])

@@ -1,9 +1,9 @@
-<!-- Modal Filter Data Laporan Keluar -->
-<div class="modal fade" id="filterLaporanKeluar" tabindex="-1" role="dialog" aria-labelledby="filterLaporanKeluarLabel" aria-hidden="true">
+<!-- Modal Filter Data Laporan Keuangan -->
+<div class="modal fade" id="filterLaporanKeuangan" tabindex="-1" role="dialog" aria-labelledby="filterLaporanKeuanganLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="filterLaporanKeluarLabel">Filter Data Laporan Keluar</h5>
+                <h5 class="modal-title" id="filterLaporanKeuanganLabel">Filter Data Laporan Keluar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

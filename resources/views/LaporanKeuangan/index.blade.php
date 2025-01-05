@@ -31,6 +31,9 @@
         <!-- DataTales -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
+            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#filterLaporanKeuangan"><i class="fas fa-print fa-sm fa-fw mr-2"></i>
+                Filter Data
+            </a>
             <a href="{{ route('laporan-keuangan.cetak-pdf') }}" class="btn btn-danger btn-sm" ><i class="fas fa-print fa-sm fa-fw mr-2"></i>Export PDF</a>
             </div>
             <div class="card-body">

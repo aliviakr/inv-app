@@ -19,7 +19,7 @@ class LaporanMasukController
         return view('LaporanMasuk.index', compact('barang_masuk', 'barang'));
     }
 
-    public function cetakPdf()
+    public function Filterdata()
     {
         $barang_masuk = BarangMasuk::all();
         $barang = Barang::all();
@@ -31,6 +31,14 @@ class LaporanMasukController
                 return redirect()->route('laporan-masuk.index')->with('warning', 'Data tidak ditemukan!');
             }
         }
+        // $pdf = PDF::loadView('LaporanMasuk.cetak-pdf', compact('barang_masuk', 'barang'));
+        // return $pdf->download('laporan-barang-masuk.pdf');
+    }
+
+    public function cetakPdf()
+    {
+        $barang_masuk = BarangMasuk::all();
+        $barang = Barang::all();
         $pdf = PDF::loadView('LaporanMasuk.cetak-pdf', compact('barang_masuk', 'barang'));
         return $pdf->download('laporan-barang-masuk.pdf');
     }

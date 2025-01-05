@@ -76,7 +76,7 @@
     </li>
 
     <!-- Pengaturan -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePengaturan"
             aria-expanded="true" aria-controls="collapsePengaturan">
             <i class="fas fa-fw fa-cogs"></i>
@@ -88,7 +88,7 @@
                 <a class="collapse-item" href="">Data User</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
 
 

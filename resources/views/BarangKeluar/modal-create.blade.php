@@ -51,3 +51,17 @@
     </div>
 </div>
 <!-- End Modal -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tanggalInput = document.getElementById('tanggal_keluar');
+
+        if (!tanggalInput.value) { // Cek jika belum ada nilai di input
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0
+            const dd = String(today.getDate()).padStart(2, '0'); 
+            tanggalInput.value = `${yyyy}-${mm}-${dd}`; // Format YYYY-MM-DD
+        }
+    });
+</script>

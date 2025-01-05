@@ -38,6 +38,7 @@
             <tr>
                 <th width="20px">No.</th>
                 <th>Nama Barang</th>
+                <th>Harga Satuan</th>
                 <th>Kategori</th>
                 <th>Jumlah (pcs)</th>
                 <th>Tanggal Masuk</th>
@@ -52,6 +53,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->barang->nama_barang }}</td>
+                    <td>{{ $item->harga_masuk }}</td>
                     <td>{{ $item->barang->kategori->kategori }}</td>
                     <td>{{ $item->jumlah_keluar }}</td>
                     <td>{{ formatToDate($item->tanggal_masuk) }}</td>

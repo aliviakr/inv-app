@@ -32,8 +32,9 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
             <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#filterLaporanMasuk"><i class="fas fa-print fa-sm fa-fw mr-2"></i>
-                Cetak PDF
+                Filter
             </a>
+            <a href="{{ route('laporan-masuk.cetak-pdf') }}" class="btn btn-danger btn-sm" ><i class="fas fa-print fa-sm fa-fw mr-2"></i>Export PDF</a>
             @include('LaporanMasuk.modal')
             <!-- <a href="" class="btn btn-success btn-sm"><i class="fas fa-file-excel fa-sm fa-fw mr-2"></i>
                 Export Excel
@@ -46,6 +47,7 @@
                             <tr>
                                 <th width="20px">No.</th>
                                 <th>Nama Barang</th>
+                                <th>Harga Satuan</th>
                                 <th>Kategori</th>
                                 <th>Jumlah (pcs)</th>
                                 <th>Tanggal Masuk</th>
@@ -57,6 +59,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->barang->nama_barang }}</td>
+                                    <td>{{ $item->harga_masuk }}</td>
                                     <td>{{ $item->barang->kategori->kategori }}</td>
                                     <td>{{ $item->jumlah_masuk }}</td>
                                     <td>{{ formatToDate($item->tanggal_masuk) }}</td>
